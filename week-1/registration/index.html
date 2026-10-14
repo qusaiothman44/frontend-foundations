@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #FAF9F6 ;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        .container{
+            width: 70%;
+            margin: 20% auto;
+            background-color: black;
+            border-radius: 18px;
+            padding: 1em;
+        }
+        form{
+            text-align: center;
+            color: #FAF9F6 ;
+        }
+        label{
+            font-size: medium;
+            font-weight: 700;
+            float: left;
+        }
+        input[type=text],input[type=email],input[type=password]{
+  width: 100%;
+  padding: 12px;
+  margin: 15px 0;
+  display: inline-block;
+  border-radius: 16px;
+  box-sizing: border-box;    
+    background-color: black;
+    border: 2px solid silver;    }
+   input[type="date" i] ,select{
+            padding: 2px 23px;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+    }
+  .left{
+    text-align: left;
+  }
+  .left label{
+    padding-right: 15px;    
+
+  }
+  textarea{
+    height: 100px;
+     background-color: black;
+    border: 2px solid silver;   
+    width: 100%;
+  }
+ .radio{
+    text-align: left;
+ }
+ button{
+    width: 100%;
+    font-size: 19px;
+    padding: 7px;
+    font-weight: 600;
+    background: black;
+    color: white;
+    border-radius: 15px;
+    border: none;
+    background: burlywood;
+ }
+ input::placeholder ,textarea::placeholder{
+    color: #FAF9F6;
+    font-size: 16px;
+    font-weight: 500;
+ }
+ hr{
+    margin-top: 1em;
+    margin-bottom: 1em;
+ }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <form action="">
+        <h2>Create account</h2>  
+<p>Please fill in your information below.</p>
+<hr>
+        <label>Full Name</label>
+        <input type="text"  placeholder="Enter your full name">
+<br>
+<hr>
+         <label>Email Address</label>
+        <input type="email"  placeholder="you@example.com">
+<br>
+<hr>
+         <label>Password</label>
+        <input type="password"  placeholder="Enter your password">
+<br> <br><hr>
+<div class="radio">
+    <label>Gender</label>
+    <input type="radio" name="male" value="male"> <span>male</span>
+    <input type="radio" name="female" value="female"> <span>Female</span>
+
+</div><hr>
+<br>
+<div class="left">
+         <label>Date of birth</label>
+        <input type="date" value="dateOfBirth" placeholder="MM - DD - YYYY">
+<br> <br>
+<hr>
+<label>Country</label>
+<select >
+    <option disabled selected>Select your Country</option>
+    <option>Jordan</option>
+    <option>Spain</option>  
+      <option>England</option>
+    <option>Italy</option>
+
+</select> <hr>
+<br> <br>
+<label>About you</label>
+<br> <br>
+<textarea placeholder="Tell us a little about yourself..."></textarea>
+<br> <br><hr>
+<label>Profile Pic</label>
+<input type="file">
+<br> <br><hr>
+<input type="checkbox" name="agree"> <label>I agree to the Terms and Conditions</label>
+</div>
+<br>
+<button>Create account</button>
+    </form>
+    </div>
+</body>
+</html>
