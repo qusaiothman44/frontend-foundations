@@ -14,3 +14,6 @@
 ## Day 4
 - Added hover effects and CSS transitions.
 - Started making the landing page responsive using CSS media queries.
+- Checked the Shopify landing page using the W3C HTML Validator and fixed the reported errors.
+
+- Added alt attributes to all images.
