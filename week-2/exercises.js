@@ -1,4 +1,4 @@
-// reverse string
+/*reverse string
 function reverse(str) {
     let newStr='';
 for (let x = str.length -1; x >= 0; x--) {
@@ -57,3 +57,16 @@ console.log(y)
   const arr=[1,4,3];
 
   findLargest(arr)
+*/
+
+  // Sum of Numbers
+  function sumNum(arr){
+    let y =0;
+    for (let i = 0; i < arr.length; i++) {
+      y = y + arr[i];
+      
+    }
+    console.log(y)
+  }
+  const arr=[1,4,3];
+sumNum(arr);
