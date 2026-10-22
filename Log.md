@@ -1,3 +1,5 @@
+# Week 1
+
 ## Day 1
 - Watched the HTML and CSS crash courses.
 - Started writing `how-the-web-works.md` to explain the basics of how the web works.
@@ -17,3 +19,8 @@
 - Checked the Shopify landing page using the W3C HTML Validator and fixed the reported errors.
 
 - Added alt attributes to all images.
+
+# Week 2
+
+## Day 1
+- Watched the JS crash course
