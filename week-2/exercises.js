@@ -243,7 +243,7 @@ function findLongestWord(str){
 
 findLongestWord('I love JavaScript')
 
-*/
+
 
 // Sort Array of Objects
 
@@ -259,3 +259,19 @@ const people = [
 ];
 
 console.log(sortByAge(people))
+
+*/
+
+function checkExam(array1, array2) {
+ // good luck
+  let sum=0
+  for (let i = 0; i <= array1.length; i++){
+    if(array1[i] == array2[i]){
+      sum=sum+ 4;
+    }else if(array1[i] !== array2[i] && array2[i] !== ""){
+      sum=sum -1;
+    }else if(sum <0){
+      sum= 0;
+    }
+
+}}
