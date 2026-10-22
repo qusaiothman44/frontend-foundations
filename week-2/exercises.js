@@ -9,3 +9,18 @@ console.log(newStr)
 
 reverse("hello")
 
+// isPalindrome
+ function isPalindrome(str){
+     
+    let y= str.length -1;
+
+    for (let I = 0; I < str.length / 2; I++) {
+if(str[I] != str[y]){
+  return false
+}      
+y--;
+    }
+    return true
+ }
+
+ console.log(isPalindrome("level"))
