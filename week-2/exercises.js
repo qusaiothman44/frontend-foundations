@@ -41,3 +41,19 @@ console.log("Buzz");
 }
 
 FizzBuzz(7)
+
+
+// Find the Largest Number
+function findLargest(numbers){
+  let y =0;
+for (let i = 0; i < numbers.length; i++) {
+  if(numbers[i] >= y){
+    y=numbers[i]
+  }
+}  
+console.log(y)
+  }
+
+  const arr=[1,4,3];
+
+  findLargest(arr)
