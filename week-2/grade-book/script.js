@@ -1,4 +1,4 @@
-let students = [];
+let students =  JSON.parse(localStorage.getItem("students")) || [];
 let studForm = document.getElementById("students-form");
 let name = document.getElementById("name");
 let grade1 = document.getElementById("grade-1");
@@ -21,6 +21,7 @@ studForm.addEventListener("submit", function (event) {
   console.log(students);
   studForm.reset();
   renderStudents();
+  saveStudents();
 });
 function renderStudents(studentList = students) {
   students.sort((a, b) => getAverage(b) - getAverage(a));
@@ -28,22 +29,28 @@ function renderStudents(studentList = students) {
   list.innerHTML = studentList
     .map((student) => {
       let letter = "";
-      let avg = (student.grades[0] + student.grades[1] + student.grades[2]) / 3;
+      let color='';
+      let avg = Math.round((student.grades[0] + student.grades[1] + student.grades[2]) / 3);
       if (avg <= 100 && avg >= 90) {
         letter = "A";
+        color='green';
       } else if (avg < 90 && avg >= 80) {
         letter = "B";
+        color='green';
       } else if (avg < 80 && avg >= 70) {
         letter = "C";
-      } else if (avg < 70 && avg >= 60) {
+        color='green';
+      } else if (avg < 70 && avg >= 50) {
         letter = "D";
-      } else if (avg < 60 && avg >= 0) {
+        color='green';
+      } else if (avg < 50 && avg >= 0) {
         letter = "F";
+        color='red';
       } else {
         letter = "error";
       }
 
-      return `<li>${student.name} ${avg} ${letter} <button onclick="deleteStu('${student.id}')">Delete</button></li> `;
+      return `<li>${student.name} ${avg} <span style="color:${color}">${letter}</span> <button onclick="deleteStu('${student.id}')">Delete</button></li> `;
     })
     .join("");
   if (students.length === 0) {
@@ -58,7 +65,7 @@ function renderStudents(studentList = students) {
   }, 0);
 
   let totalAvg = sumOfAverages / students.length;
-  total.textContent = `the class avg is ${totalAvg}`;
+  total.textContent = `The class avg: ${Math.round(totalAvg)}`;
 
   let TopStu = students.reduce((top, stu) => {
     if (getAverage(stu) > getAverage(top)) {
@@ -66,17 +73,18 @@ function renderStudents(studentList = students) {
     }
     return top;
   });
-  topstudent.textContent = `${TopStu.name} ${getAverage(TopStu)}`;
+  topstudent.textContent = `Top Student: ${TopStu.name} ${getAverage(TopStu)}`;
 
   let fail = students.filter((f) => {
     return getAverage(f) < 50;
   });
   let failCount = fail.length;
-  Failstudents.textContent = `number of fail students is ${failCount}`;
+  Failstudents.textContent = `Number of fail students: ${failCount}`;
 }
 function deleteStu(idDelete) {
   students = students.filter((student) => student.id !== idDelete);
   renderStudents();
+  saveStudents();
 }
 
 search.addEventListener("input", (e) => {
@@ -88,5 +96,10 @@ search.addEventListener("input", (e) => {
   renderStudents(result);
 });
 function getAverage(student) {
+    
   return student.grades.reduce((s, g) => s + g, 0) / student.grades.length;
 }
+function saveStudents() {
+  localStorage.setItem("students", JSON.stringify(students));
+}
+renderStudents();
