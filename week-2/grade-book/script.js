@@ -9,7 +9,7 @@ let total = document.getElementById("total-avg");
 let topstudent = document.getElementById("top-stu");
 let Failstudents = document.getElementById("Fail-stu");
 let search = document.getElementById("search");
-
+let sortAll=document.querySelectorAll('input[name="sort"]');
 studForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -24,7 +24,6 @@ studForm.addEventListener("submit", function (event) {
   saveStudents();
 });
 function renderStudents(studentList = students) {
-  students.sort((a, b) => getAverage(b) - getAverage(a));
 
   list.innerHTML = studentList
     .map((student) => {
@@ -95,11 +94,30 @@ search.addEventListener("input", (e) => {
   );
   renderStudents(result);
 });
+sortAll.forEach(r=>{
+    r.addEventListener("change",()=>{
+        if(r.value==="avg"){
+            SortAvg()
+        }else{
+            SortName()
+        }
+            renderStudents();
+                saveStudents();
+
+
+    })
+})
 function getAverage(student) {
     
   return student.grades.reduce((s, g) => s + g, 0) / student.grades.length;
 }
 function saveStudents() {
   localStorage.setItem("students", JSON.stringify(students));
+}
+function SortAvg(){
+      students.sort((a, b) => getAverage(b) - getAverage(a));
+}
+function SortName(){
+      students.sort((a, b) => a.name.localeCompare(b.name));
 }
 renderStudents();
