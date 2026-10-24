@@ -24,3 +24,17 @@
 
 ## Day 1
 - Watched the JS crash course
+- done with 15 exercises
+
+## Day 2
+- solve Codewars (15) 8kyu , (5) 7kyu
+- color flipper ,character counter
+
+## Day 3
+- FAQ accordion
+- humburger menu is already done in the week 1 using css
+- starting with grades project 
+## Day 4
+- finishing the grades project 
+- using var in the css for colors for week 1 and week2
+- deploy projects on netlify
