@@ -23,7 +23,7 @@ function addTodo(event) {
   todoDiv.appendChild(newTodo);
 
   // save to local
-  saveLocalTodo(todoInput.value)
+  saveLocalTodo(todoInput.value);
   //check mark button
   const completedButton = document.createElement("button");
   completedButton.innerHTML = '<i class="fas fa-check"></i>';
@@ -45,7 +45,7 @@ function deletecheck(e) {
   if (item.classList[0] === "trash-btn") {
     const todo = item.parentElement;
     todo.classList.add("fall");
-    removeLocalTodos(todo)
+    removeLocalTodos(todo);
     todo.addEventListener("transitionend", () => {
       todo.remove();
     });
@@ -71,9 +71,9 @@ function filterTodo(e) {
           todo.style.display = "none";
         }
         break;
-        case "unCompleted":
-            if(!todo.classList.contains("completed")){
-                todo.style.display = "flex";
+      case "unCompleted":
+        if (!todo.classList.contains("completed")) {
+          todo.style.display = "flex";
         } else {
           todo.style.display = "none";
         }
@@ -81,58 +81,57 @@ function filterTodo(e) {
     }
   });
 }
-function saveLocalTodo(t){
-    let todos;
-    if (localStorage.getItem('todos') === null) {
-        todos=[]
-    }else{
-        todos= JSON.parse(localStorage.getItem('todos'))
-    }
-    todos.push(t)
-    localStorage.setItem('todos', JSON.stringify(todos))
+function saveLocalTodo(t) {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  todos.push(t);
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-function getTodos(){
-     let todos;
-    if (localStorage.getItem('todos') === null) {
-        todos=[]
-    }else{
-        todos= JSON.parse(localStorage.getItem('todos'))
-    }
-    todos.forEach((t)=>{
-         // todo div
-  const todoDiv = document.createElement("div");
-  todoDiv.classList.add("todo");
-  //li
-  const newTodo = document.createElement("li");
-  newTodo.innerText = t;
-  newTodo.classList.add("todo-item");
-  todoDiv.appendChild(newTodo);
+function getTodos() {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  todos.forEach((t) => {
+    // todo div
+    const todoDiv = document.createElement("div");
+    todoDiv.classList.add("todo");
+    //li
+    const newTodo = document.createElement("li");
+    newTodo.innerText = t;
+    newTodo.classList.add("todo-item");
+    todoDiv.appendChild(newTodo);
 
-  
-  //check mark button
-  const completedButton = document.createElement("button");
-  completedButton.innerHTML = '<i class="fas fa-check"></i>';
-  completedButton.classList.add("complete-btn");
-  todoDiv.appendChild(completedButton);
-  //check mark button
-  const trashButton = document.createElement("button");
-  trashButton.innerHTML = '<i class="fas fa-trash"></i>';
-  trashButton.classList.add("trash-btn");
-  todoDiv.appendChild(trashButton);
-  //appened to list
-  todoList.appendChild(todoDiv);
-    })
+    //check mark button
+    const completedButton = document.createElement("button");
+    completedButton.innerHTML = '<i class="fas fa-check"></i>';
+    completedButton.classList.add("complete-btn");
+    todoDiv.appendChild(completedButton);
+    //check mark button
+    const trashButton = document.createElement("button");
+    trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+    trashButton.classList.add("trash-btn");
+    todoDiv.appendChild(trashButton);
+    //appened to list
+    todoList.appendChild(todoDiv);
+  });
 }
 
-function removeLocalTodos(todo){
-      let todos;
-    if (localStorage.getItem('todos') === null) {
-        todos=[]
-    }else{
-        todos= JSON.parse(localStorage.getItem('todos'))
-    }
-    const todoIndex= todo.children[0].innerText;
-    todos.splice(todos.indexOf(todoIndex),1);
-    localStorage.setItem("todos",JSON.stringify(todos));
+function removeLocalTodos(todo) {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  const todoIndex = todo.children[0].innerText;
+  todos.splice(todos.indexOf(todoIndex), 1);
+  localStorage.setItem("todos", JSON.stringify(todos));
 }

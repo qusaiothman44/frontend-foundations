@@ -1,0 +1,13 @@
+const express = require('express');
+const path = require('path');
+const app = express();
+
+app.use('/static', express.static(path.join(__dirname, 'Frontend', 'static')));
+
+app.get('/{*splat}', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'Frontend', 'index.html'));
+});
+
+app.listen(process.env.PORT || 3000, () => {
+    console.log('Server is running on http://localhost:3000');
+});
