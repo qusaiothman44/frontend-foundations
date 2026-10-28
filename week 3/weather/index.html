@@ -1,37 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script type="module" src="script.js"></script>
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <h1>Weather App</h1>
     <div class="weather-app">
-        <h1>Weather App</h1>
-
-        <form class="search-form">
-            <input type="text" class="city-input" required>
+      <div class="f-column">
+        <h1>Recent City</h1>
+        <div class="cities"></div>
+      </div>
+      <div class="s-column">
+        <div class="search-div">
+          <form class="search-form">
+            <input
+              type="text"
+              class="city-input"
+              placeholder="Enter City Name...."
+              required
+            />
             <button class="search-btn">search</button>
-        </form>
-<div class="error"></div>
-        <div class="loader">
-            Loading..........
-        </div>
-        <p class="status"></p>
+          </form>
+          <div class="radio">
+            <label>
+              <input type="radio" name="unit" value="celsius" checked />
+              Celsius (°C)
+            </label>
 
+            <label>
+              <input type="radio" name="unit" value="fahrenheit" />
+              Fahrenheit (°F)
+            </label>
+          </div>
+        </div>
         <div class="weather-info">
+          <div class="column-1">
             <h4></h4>
+            <p class="icon"></p>
+          </div>
+          <div class="column-2">
             <h2></h2>
             <p class="feels"></p>
             <p class="dec"></p>
-            <p class="icon"></p>
+          </div>
+          <div class="column-3">
             <p class="humidity"></p>
             <p class="speed"></p>
+            <p class="pressure"></p>
+          </div>
+        </div>
+        <div class="forecast">
+            <h1>5 Days forecast</h1>
         </div>
 
-        <div class="forecast"></div>
+        <div class="loader"><img src="loader.webp" alt="loader"></div>
+        <div class="error"></div>
+        <p class="status"></p>
+      </div>
     </div>
-</body>
+  </body>
 </html>

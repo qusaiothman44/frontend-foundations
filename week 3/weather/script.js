@@ -1,73 +1,89 @@
-// Selectors
+import { getWeatherData, getForecastData } from "./api.js";
 
-const CityInput =document.querySelector(".city-input");
+import {
+  displayWeather,
+  displayForecast,
+  showLoading,
+  showError,
+  clearError,
+} from "./ui.js";
+
+const CityInput = document.querySelector(".city-input");
 const searchBtn = document.querySelector(".search-btn");
-const temp = document.querySelector("h2");
-const feels = document.querySelector(".feels");
-const dec = document.querySelector(".dec");
-const icon = document.querySelector(".icon");
-const humidity = document.querySelector(".humidity");
-const cityName = document.querySelector("h4");
-const forecast = document.querySelector(".forecast");
-const loader = document.querySelector(".loader");
-const divError = document.querySelector(".error");
+const citesDiv = document.querySelector(".cities");
+let currentCity = "";
 
-//event listener
+async function getCity(city) {
+  if (!city) {
+    showError("Please enter a city name");
+    return;
+  }
 
-searchBtn.addEventListener("click",(event)=> {
-event.preventDefault();
-    getCity(CityInput.value.trim());
+  const selected = document.querySelector('input[name="unit"]:checked');
+
+  const units = selected.value === "celsius" ? "metric" : "imperial";
+
+  showLoading(true);
+  clearError();
+
+  try {
+    const weather = await getWeatherData(city, units);
+    const forecast = await getForecastData(city, units);
+
+    currentCity = weather.name;
+
+    displayWeather(weather, units);
+    displayForecast(forecast);
+     saveLocalStorage(weather.name);
+getCities();
+  } catch (error) {
+    showError(error.message);
+  } finally {
+    showLoading(false);
+  }
+ 
+}
+
+searchBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  getCity(CityInput.value.trim());
+});
+
+document.querySelectorAll('input[name="unit"]').forEach((radio) => {
+  radio.addEventListener("change", () => {
+    if (currentCity) {
+      getCity(currentCity);
+    }
+  });
 });
 
 
-//functions
+function saveLocalStorage(city) {
+    let cities = JSON.parse(localStorage.getItem("cities")) || [];
+    cities = cities.filter(
+        c => c.toLowerCase() !== city.toLowerCase()
+    );
+    cities.unshift(city);
+    cities = cities.slice(0, 5);
 
-async function getCity(city){
-loader.style.display="block";
-try{
-const response1= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6c806a9ca3bff328b79c106e60fc35ba&units=metric`);
-let data= await response1.json();
-if (!response1.ok) {
-    throw new Error("City not found");
-}
-const response2= await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=6c806a9ca3bff328b79c106e60fc35ba&units=metric`);
-let data2= await response2.json();
-if (!response2.ok) {
-    throw new Error("City not found");
-}
-console.log(data)
-console.log(data2)
-
-cityName.innerHTML=data.name
-temp.innerHTML= `${Math.round(data.main.temp)} C`
-feels.innerHTML = data.main.feels_like
-dec.innerHTML = data.weather[0].description
-
-icon.innerHTML= `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"/>`
-humidity.innerHTML= data.main.humidity
-
-let result = data2.list.filter(list=>{
-    let x =list.dt_txt.split(" ");
-    return x[1] === "12:00:00"
-})
-
-forecast.innerHTML= result.map(d=>{
-    const date = new Date(d.dt_txt);
-
-const formattedDate = date.toLocaleDateString("en-US", {
-    weekday: "short",
-    month: "short",
-    day: "numeric"})    
-    return `
-    <p>${d.main.temp}</p>
-    <p>${formattedDate}</p>
-    <p>${d.weather[0].description}</p>
-`})
-divError.textContent=""
-}catch(error){
-    divError.innerHTML=error.message
-}finally{
-    loader.style.display="none"
-}
+    localStorage.setItem("cities", JSON.stringify(cities));
 }
 
+function getCities() {
+    const cities = JSON.parse(localStorage.getItem("cities")) || [];
+
+    citesDiv.innerHTML = "";
+
+    cities.forEach(city => {
+        const pastCity = document.createElement("div");
+        pastCity.classList.add("past-city");
+        pastCity.textContent = city;
+
+        pastCity.addEventListener("click", () => {
+            CityInput.value = city;
+            getCity(city);
+        });
+
+        citesDiv.appendChild(pastCity);
+    });
+}

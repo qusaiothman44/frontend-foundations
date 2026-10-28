@@ -1,3 +1,123 @@
 .loader{
     display: none;
+    text-align: center;
+}
+.loader img{
+    width: 40%;
+}
+body{
+     font-family: "Poopins", sans-serif;
+    min-height: 100vh;
+    background: url(bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.weather-app{
+    min-height: 90vh;
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background-color: white;
+}
+.s-column{
+    padding: 2em;
+        display: flex;
+    flex-direction: column;
+    gap: 4em;
+}
+.search-div{
+display: flex;
+    align-items: center;
+}
+.search-form{
+    width: 75%;
+    border: 2px solid silver;
+    border-radius: 18px;
+}
+.city-input{
+    padding: 1em;
+    width: 80%;
+    background: none;
+    border: none;
+}
+.search-btn{
+    padding: 1em;
+    background-color: #3493ed;
+}
+.weather-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #5d94d3;
+    border-radius: 18px;
+    padding: 1em;
+    align-items: center;
+    justify-items: center;
+    text-align:left;
+    color: white;
+}
+
+.weather-info .column-1 h4{
+font-size: 30px;
+color: white;
+    font-weight: 700;
+
+}
+
+.weather-info .column-2 h2{
+    font-size: 45px;
+    font-weight: 700;
+}
+.weather-info .column-3{
+        display: flex;
+    gap: 12px;
+    flex-direction: column;
+    border-left: 1px solid;
+    padding-left: 15px;
+}
+.weather-info p{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.forecast{
+   display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f3f7fd;
+    min-height: 15vh;
+    border-radius: 18px;
+    padding: 1em;
+}
+
+.forecast-card{
+    text-align: center;
+    background-color: white;
+    padding: 1em;
+    border-radius: 18px;
+}
+
+.forecast-card img{
+        width: 61%;
+}
+.error{
+        text-align: center;
+    background-color: #faeef2;
+    padding: 2em;
+    color: #d5736a;
+    font-size: 18px;
+    display: none;
+}
+
+.cities{
+    height: 80%;
+    display: grid;
+    justify-content:space-around ;
+    text-align: center;
+}
+.f-column{
+    text-align: center;
+}
+.f-column h1{
+    padding-bottom: 2em;
 }
