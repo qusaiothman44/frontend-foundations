@@ -5,3 +5,25 @@
 .fas{
     pointer-events: none;
 }
+
+.container{
+        width: 80%;
+    margin: auto;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    grid-template-rows: 1fr 1fr;
+    padding: 2em;
+
+}
+li{
+    list-style-type: none;
+}
+.list{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+.todo-div{
+    background-color: aliceblue;
+}
