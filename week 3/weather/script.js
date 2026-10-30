@@ -77,7 +77,7 @@ function getCities() {
     cities.forEach(city => {
         const pastCity = document.createElement("div");
         pastCity.classList.add("past-city");
-        pastCity.textContent = city;
+        pastCity.innerHTML = `<li>${city}</li>`;
 
         pastCity.addEventListener("click", () => {
             CityInput.value = city;
@@ -87,3 +87,5 @@ function getCities() {
         citesDiv.appendChild(pastCity);
     });
 }
+
+getCity("Amman");

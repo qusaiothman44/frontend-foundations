@@ -19,6 +19,8 @@ body{
     display: grid;
     grid-template-columns: 30% 70%;
     background-color: white;
+    border-radius: 20px;
+    padding: 1em;
 }
 .s-column{
     padding: 2em;
@@ -42,8 +44,14 @@ display: flex;
     border: none;
 }
 .search-btn{
-    padding: 1em;
+    padding: 1em 2.1em;
     background-color: #3493ed;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    font-size: 15px;
+    font-weight: 600;
+
 }
 .weather-info{
     display: grid;
@@ -111,13 +119,33 @@ color: white;
 
 .cities{
     height: 80%;
-    display: grid;
-    justify-content:space-around ;
-    text-align: center;
+   
+    
 }
+.past-city li{
+    list-style-type: none;
+    background: #5d94d3;
+    padding: 2em;
+    border: 2px solid #f3f7fd;
+    border-radius: 40px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .f-column{
     text-align: center;
 }
 .f-column h1{
     padding-bottom: 2em;
+}
+.city-input:focus {
+    outline: none;
+}
+
+.main{
+    text-align: center;
+    font-size: 50px;
+    padding: 2em;
+    color: #fff;
 }
