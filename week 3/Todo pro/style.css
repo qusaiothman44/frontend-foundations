@@ -1,29 +1,97 @@
-.completed{
-    color: red;
+body{
+    background: url(6Carafe.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+body::after{
+    content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+.completed {
+  text-decoration: line-through;
+    opacity: 0.6;
+} 
+
+.fas {
+  pointer-events: none;
 }
 
-.fas{
-    pointer-events: none;
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 2em;
+  text-align: center;
+}
+li {
+  list-style-type: none;
+  padding-bottom: 1em;
+  
+}
+.list {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2em;
+  flex-wrap: wrap;
+}
+.todo-div {
+  background-color: #013a20;
+  padding: 2em;
+margin: 0.5em;
+  color: white;
+  font-size: 23px;
+  border: 2px solid #ecd5bb;
+  border-radius: 22px;
 }
 
-.container{
-        width: 80%;
-    margin: auto;
-    display: grid;
-    flex-direction: column;
-    justify-content: center;
-    grid-template-rows: 1fr 1fr;
-    padding: 2em;
+.complete-btn,
+.trash-btn,
+.edit-btn,
+.save-btn {
+  background: none;
+  color: white;
+  border: 2px solid #ecd5bb;
+  cursor: pointer;
+}
+.complete-btn:hover,
+.trash-btn:hover,
+.edit-btn:hover,
+.save-btn:hover{
+    background-color: #ECD5BB;
+    color: #1E1514;
+      border: 2px solid #1E1514;
 
 }
-li{
-    list-style-type: none;
+input{
+    padding: 1em;
+    width: 30%;
+    border: 3px solid #1E1514;
+    border-radius: 20px;
+ 
 }
-.list{
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
+.save-btn{
+    padding: 1em;
+   border-radius: 20px;
 }
-.todo-div{
-    background-color: aliceblue;
+.todo-button{
+        padding: 1em;
+    width: 7%;
+    background-color: #1E1514;
+    border: 3px solid #ECD5BB;
+    color: #ECD5BB;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.todo-button:hover{
+    background:none;
+}
+h1{
+    font-size: 50px;
+    margin-bottom: 1em;
+    color: white;
 }
