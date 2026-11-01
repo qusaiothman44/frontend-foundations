@@ -37,4 +37,21 @@
 ## Day 4
 - finishing the grades project 
 - using var in the css for colors for week 1 and week2
-- deploy projects on netlify
+- deploy projects on netlify.
+
+
+# week 3
+
+## Day 1
+- watching the todo list video and build it with it
+
+## Day 2
+- bulding the routing project with the video
+- writing the async.js 
+
+## day 3
+- starting with the weather api project and finsih it.
+
+## Day 4 
+- bulding two projects from the video (review and video).
+- bulding my own todo list
