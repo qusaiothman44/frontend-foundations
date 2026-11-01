@@ -1,0 +1,11 @@
+{
+  "tasks": [
+    {
+      "text": "fg",
+      "day": "dfgf",
+      "reminder": true,
+      "id": "PYWTPJGcD_g"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
