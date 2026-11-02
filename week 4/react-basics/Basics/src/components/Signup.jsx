@@ -14,6 +14,7 @@ const Signup = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Name</label>
         <input
+         className="input"
           type="text"
           name="name"
           {...register("name", { required: "name is required ", minLength:{
@@ -25,6 +26,7 @@ const Signup = () => {
 
          <label>Email</label>
         <input
+        className="input"
           type="email"
           name="email"
           {...register("email", { required: "email is required ", pattern:{
@@ -37,6 +39,7 @@ const Signup = () => {
         
          <label>Password</label>
         <input
+         className="input"
           type="password"
           name="password"
           {...register("password", { required: "password is required ", minLength:{
@@ -46,7 +49,7 @@ const Signup = () => {
         />
         {errors.password && (<span>{errors.password.message}</span>)}
 
-        <button type="submit">Submit</button>
+        <button type="submit" className="btn">Submit</button>
       </form>
     </div>
   );

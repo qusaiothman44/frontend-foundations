@@ -10,17 +10,19 @@ function App() {
 
   return (
     <>
+    <div className="app">
     <Counter/>
-    <br />
+    <br /> 
     <Prudects/>
 
     <br /> 
     <Signup/>
-    <br />
+    <br /> 
     <Toggle/>
 
-    <br />
+    <br /> 
     <ColorPicker/>
+    </div>
     </>
   )
 }

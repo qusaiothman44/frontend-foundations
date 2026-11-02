@@ -1,10 +1,11 @@
 
-const Prudect = ({image}) => {
+const Prudect = ({image , title, price}) => {
   return (
-    <div>
-        <h1>hello</h1>
+    <div className="pro-card">
       <img src={image}  />
-      <button>Add to cart</button>
+<h3>{title}</h3>
+<p>{price}$</p>
+      <button className="btn">Add to cart</button>
     </div>
   )
 }

@@ -11,12 +11,15 @@ const Toggle = () => {
       <div className="password">
         <label>Enter password:</label>
         <input
+        className="input" 
           type={show ? "text" : "password"}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <label>show</label>
         <input
+                className="input" 
+
           type="checkbox"
           value={show}
           onChange={() => setshow((p) => !p)}
