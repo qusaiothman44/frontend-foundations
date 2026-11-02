@@ -1,0 +1,7 @@
+.tab button{
+        background: none;
+    border: none;
+    border-bottom: 2px solid;
+    margin-right: 1em;
+cursor: pointer;
+}
