@@ -14,7 +14,7 @@ const TodoList = ({ task, setTask }) => {
     setTask(task.filter((t, i) => i !== index));
   };
   const onSave = (index, newTask) => {
-    setTask(task.map((t, i) => (i === index ? { ...t, text: newTask } : t)));
+    setTask(task.map((t, i) => (i === index ? { ...t, text: newTask ,date: Date.now() } : t)));
   };
 
   const onComplete = (index) => {

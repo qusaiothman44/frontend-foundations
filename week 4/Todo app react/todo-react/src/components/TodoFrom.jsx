@@ -9,7 +9,8 @@ const TodoFrom = ({ setTask }) => {
     }
     setTask(prev =>[...prev,{
         text: newTask,
-        complete: false
+        complete: false,
+        date: Date.now()
     }])
 
     setNewTask('')

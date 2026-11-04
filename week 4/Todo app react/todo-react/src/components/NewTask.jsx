@@ -7,6 +7,7 @@ const NewTask = ({ task, onDelete, onSave,onComplete }) => {
   return (
     <div>
       <h1 className={`${task.complete ? 'complete' :''}`}>{task.text}</h1>
+      <p>{new Date(task.date).toLocaleString()}</p>
       <button onClick={onComplete}>complete</button>
       <button onClick={onDelete}>Delete</button>
       <button onClick={() => setIsEdit(!isEdit)}>Edit</button>
