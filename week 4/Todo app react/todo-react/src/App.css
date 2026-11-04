@@ -16,3 +16,7 @@
 .no-edit{
   display: inline;
 }
+
+.complete{
+  text-decoration: line-through;
+}

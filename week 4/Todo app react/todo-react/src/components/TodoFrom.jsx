@@ -7,7 +7,10 @@ const TodoFrom = ({ setTask }) => {
         alert("plz add task")
         return
     }
-    setTask(prev =>[...prev,newTask])
+    setTask(prev =>[...prev,{
+        text: newTask,
+        complete: false
+    }])
 
     setNewTask('')
   };
