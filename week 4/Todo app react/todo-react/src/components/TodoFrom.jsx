@@ -24,7 +24,7 @@ const TodoFrom = ({ setTask }) => {
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
         />
-        <button >Add</button>
+        <button className="btn">Add</button>
       </form>
     </div>
   );

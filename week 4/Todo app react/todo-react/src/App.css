@@ -19,4 +19,44 @@
 
 .complete{
   text-decoration: line-through;
+  
+}
+.head-of-tasks{
+      display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+    margin-bottom:2em ;
+   
+}
+input{
+      padding: 10px;
+    border-radius: 18px;
+    border: 2px solid;
+    margin-right: 1em;
+}
+button{
+ padding: 10px;
+ border-radius: 18px;
+ border: 2px solid;
+ font-weight: 700;
+ background-color: #38BDF8;
+ margin: 1em;
+ cursor: pointer;
+}
+button:hover{
+  background: #F8FAFC;
+  color: #334155;
+border: 2px solid #38BDF8;}
+.task{
+      display: grid;
+    gap: 10px;
+    background: #F8FAFC;
+    color: #334155;
+    border: 2px solid;
+    border-radius: 18px;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+.task h1{
+  color: #334155;
 }

@@ -39,9 +39,12 @@ const TodoList = ({ task, setTask }) => {
   
   return (
     <div>
-      <h1>tasks number{task.length}</h1>
-      <h2>{completeNum()}</h2>
-      <button onClick={deleteCompleted}>Delete Complete</button>
+      <div className="head-of-tasks">
+         <p>tasks number: {task.length} | </p>
+      <p>completed: {completeNum()} </p>
+      </div>
+           <button onClick={deleteCompleted}>Delete Complete</button>
+
         <select value={filter} onChange={(e)=>setFilter(e.target.value)}>
             <option value="all">all</option>
             <option  value="active">active</option>
@@ -54,6 +57,7 @@ const TodoList = ({ task, setTask }) => {
           onDelete={() => onDelete(t.id)}
           onSave={(newTask) => onSave(t.id, newTask)}
           onComplete={() => onComplete(t.id)}
+         
         />
       ))}
     </div>

@@ -5,7 +5,7 @@ const NewTask = ({ task, onDelete, onSave,onComplete }) => {
   const [newTask, setNewTask] = useState(task.text);
   const [isEdit, setIsEdit] = useState(false);
   return (
-    <div>
+    <div  className="task">
       <h1 className={`${task.complete ? 'complete' :''}`}>{task.text}</h1>
       <p>{new Date(task.date).toLocaleString()}</p>
       <button onClick={onComplete}>complete</button>
@@ -18,6 +18,7 @@ const NewTask = ({ task, onDelete, onSave,onComplete }) => {
           onChange={(e) => setNewTask(e.target.value)}
         />
         <button
+        className="btn"
           onClick={() => {
             onSave(newTask);
             setIsEdit(false);
