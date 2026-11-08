@@ -10,32 +10,50 @@ const TodoList = ({ task, setTask }) => {
   });
 
  
-  const onDelete = (index) => {
-    setTask(task.filter((t, i) => i !== index));
+  const onDelete = (id) => {
+    setTask(task.filter(t => t.id !== id));
   };
-  const onSave = (index, newTask) => {
-    setTask(task.map((t, i) => (i === index ? { ...t, text: newTask ,date: Date.now() } : t)));
+  const onSave = (id, newTask) => {
+    setTask(task.map(t => (t.id === id ? { ...t, text: newTask ,date: Date.now() } : t)));
   };
 
-  const onComplete = (index) => {
+  const onComplete = (id) => {
     setTask(
-      task.map((t, i) => (i === index ? { ...t, complete: !t.complete } : t)),
+      task.map(t => (t.id === id ? { ...t, complete: !t.complete } : t)),
     );
   };
+  const completeNum=()=>{
+    let x=0
+    for (let index = 0; index < task.length; index++) {
+      if(task[index].complete === true){
+        x++
+      }
+      
+    }
+    return x;
+  }
+  const deleteCompleted=()=>{
+          setTask(task.filter(t => !t.complete));
+
+  }
+  
   return (
     <div>
+      <h1>tasks number{task.length}</h1>
+      <h2>{completeNum()}</h2>
+      <button onClick={deleteCompleted}>Delete Complete</button>
         <select value={filter} onChange={(e)=>setFilter(e.target.value)}>
             <option value="all">all</option>
             <option  value="active">active</option>
             <option  value="complete">completed</option>
         </select>
-      {filterTasks.map((t, index) => (
+      {filterTasks.map((t) => (
         <NewTask
-          key={index}
+          key={t.id}
           task={t}
-          onDelete={() => onDelete(task.indexOf(t))}
-          onSave={(newTask) => onSave(task.indexOf(t), newTask)}
-          onComplete={() => onComplete(task.indexOf(t))}
+          onDelete={() => onDelete(t.id)}
+          onSave={(newTask) => onSave(t.id, newTask)}
+          onComplete={() => onComplete(t.id)}
         />
       ))}
     </div>

@@ -8,6 +8,7 @@ const TodoFrom = ({ setTask }) => {
         return
     }
     setTask(prev =>[...prev,{
+      id:crypto.randomUUID(),
         text: newTask,
         complete: false,
         date: Date.now()
