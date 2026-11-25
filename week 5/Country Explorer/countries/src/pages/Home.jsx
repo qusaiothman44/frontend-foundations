@@ -6,10 +6,17 @@ import CountryCard from "../components/CountryCard";
 import UseFetch from "../UseFetch";
 const Home = () => {
     const {countries,error}= UseFetch("https://countries.dev/countries?fields=name,alpha3Code,capital,region,population,flag,flags&sort=name")
-  const [searchTerm, setSearchTerm] = useState("");
-  const [region, setRegion] = useState("");
-console.log(countries);
-
+  const [searchTerm, setSearchTerm] = useState(localStorage.getItem("searchTerm") || "");
+  const [region, setRegion] = useState(localStorage.getItem("region") || "");
+  useEffect(()=>{
+localStorage.setItem("region",region)
+localStorage.setItem("searchTerm",searchTerm)
+  },[searchTerm,region])
+const filteredCountries =countries.filter((country)=>{
+  return(
+    country.name.toLowerCase().includes(searchTerm.toLowerCase()) && (region ? country.region === region:true)
+  )
+})
  if(error){
   return <h1>Somthing wrong</h1>
  }
@@ -20,7 +27,7 @@ console.log(countries);
       <FilterSelect region={region} setRegion={setRegion} />
         </div>
    <div>
-    {countries.map((country)=>(
+    {filteredCountries.map((country)=>(
         <CountryCard key={country.alpha3Code
 } country={country}/>
     ))}

@@ -6,8 +6,9 @@ const CountryCard = ({country}) => {
       <img src={country.flags.svg} alt={country.name} />
       <div className="text">
         <p>{country.population.toLocaleString()}</p>
-        <p>{country.capital?.[0]}</p>
-        <Link to={`/country/${country.name}`}></Link>
+        <p>{country.capital}</p>
+        <p>{country.region}</p>
+        <Link to={`/country/${country.alpha3Code}`}>details</Link>
       </div>
     </div>
   )
