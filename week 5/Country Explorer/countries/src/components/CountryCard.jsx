@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 const CountryCard = ({country}) => {
   return (
-    <div>
-      <img src={country.flags.svg} alt={country.name} />
+    <div className='card'>
+      <img src={country.flags.svg} alt={country.name}  className="cardImg"/>
       <div className="text">
-        <p>{country.population.toLocaleString()}</p>
-        <p>{country.capital}</p>
-        <p>{country.region}</p>
-        <Link to={`/country/${country.alpha3Code}`}>details</Link>
+        <p>Population: {country.population.toLocaleString()}</p>
+        <p>Capital: {country.capital}</p>
+        <p>region: {country.region}</p>
+        <Link to={`/country/${country.alpha3Code}`} className='btn'>details</Link>
       </div>
     </div>
   )

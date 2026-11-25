@@ -17,10 +17,14 @@ const Details = () => {
   }
   return (
     <>
-    <Link to="/">Back</Link>
+    <Link to="/" className="btn-back">Back</Link>
     <div className="details">
       <img src={counrty.flags.svg} alt="" />
-      <h1>{counrty.name}</h1>
+      <h1>Country: {counrty.name}</h1>
+      <p>Capital: {counrty.capital}</p>
+      <p>Region: {counrty.region}</p>
+      <p>Subregion: {counrty.subregion}</p>
+      <p>Population: {counrty.population.toLocaleString()}</p>
     </div>
     </>
   );

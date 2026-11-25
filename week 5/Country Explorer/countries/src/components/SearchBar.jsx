@@ -8,6 +8,7 @@ const SearchBar = ({ searchterm, setSearchTerm }) => {
         placeholder="Search for a country..."
         value={searchterm}
         onChange={(e)=>setSearchTerm(e.target.value)}
+        className="search"
       />
     </>
   );
